@@ -1,0 +1,20 @@
+{
+  "name": "tak-feeder-adsbhub",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Stefan Gofferje <stefan@gofferje.net> (https://www.gofferje.net/)",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "@vidterra/tak.js": "^0.0.8",
+    "fs": "^0.0.1-security",
+    "net": "^1.0.2",
+    "objectcache": "^0.2.4",
+    "sbs1": "^0.2.3",
+    "tls": "^0.0.1",
+    "uuid": "^9.0.0"
+  }
+}
