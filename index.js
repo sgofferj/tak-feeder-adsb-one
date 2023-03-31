@@ -11,7 +11,7 @@ const fetch = require('node-fetch');
 const url = process.env.REMOTE_SERVER_URL
 const sslCert = process.env.REMOTE_SSL_SERVER_CERTIFICATE
 const sslKey = process.env.REMOTE_SSL_SERVER_KEY
-const intervalSecs = (typeof process.env.UPDATE_INTERVAL !== 'undefined') ? process.env.UPDATE_INTERVAL : 2;
+const intervalSecs = (typeof process.env.UPDATE_INTERVAL !== 'undefined') ? process.env.UPDATE_INTERVAL : 2.1;
 if (intervalSecs < 2) intervalSecs = 2;
 const logCot = (typeof process.env.LOGCOT !== 'undefined') ? process.env.LOGCOT : false;
 const getMil = (typeof process.env.GETMIL !== 'undefined') ? process.env.GETMIL : false;
@@ -73,7 +73,6 @@ const run = () => {
 
   function pullandfeed() {
     let url;
-    console.log(getMil);
     if (getMil == true) url = 'https://api.adsb.one/v2/mil';
     else url = `https://api.adsb.one/v2/point/${LAT}/${LON}/${RANGE}`;
     fetch(url)
