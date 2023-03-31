@@ -1,5 +1,5 @@
 {
-  "name": "tak-feeder-adsbhub",
+  "name": "tak-feeder-adsb-one",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -13,8 +13,8 @@
     "dotenv": "^16.0.3",
     "fs": "^0.0.1-security",
     "net": "^1.0.2",
+    "node-fetch": "^2.6.9",
     "objectcache": "^0.2.4",
-    "sbs1": "^0.2.3",
     "tls": "^0.0.1",
     "uuid": "^9.0.0"
   }

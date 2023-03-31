@@ -1,21 +1,17 @@
-
 require('dotenv').config();
+const util = require('util')
 
 const functions = require('./lib/functions.js');
 const tls = require('tls')
 const fs = require('fs');
-const sbs1 = require('sbs1');
 const { adsb2cot } = require('./lib/functions.js');
+const fetch = require('node-fetch');
 
-let rawdata = fs.readFileSync('cotdb_indexed.json');
-let cotdb = JSON.parse(rawdata);
-rawdata = fs.readFileSync('aircrafts.json');
-let acdb = JSON.parse(rawdata);
 
 const url = process.env.REMOTE_SERVER_URL
 const sslCert = process.env.REMOTE_SSL_SERVER_CERTIFICATE
 const sslKey = process.env.REMOTE_SSL_SERVER_KEY
-const intervalSecs = (typeof process.env.GDACS_PULL_INTERVAL !== 'undefined') ? process.env.GDACS_PULL_INTERVAL : 60;
+const intervalSecs = (typeof process.env.GDACS_PULL_INTERVAL !== 'undefined') ? process.env.GDACS_PULL_INTERVAL : 2;
 const logCot = (typeof process.env.LOGCOT !== 'undefined') ? process.env.LOGCOT : false;
 
 const heartbeatIntervall = 30 * 1000;
@@ -43,6 +39,7 @@ const run = () => {
       console.log("Connection not authorized: " + client.authorizationError)
     }
     heartbeat();
+    pullandfeed();
   })
 
   client.on('data', (data) => {
@@ -68,30 +65,22 @@ const run = () => {
     setTimeout(heartbeat, heartbeatIntervall);
   }
 
-  const adsbhub = sbs1.createClient({ "host": "data.adsbhub.org", "port": "5002" });
-
-  adsbhub.on('message', function (msg) {
-    console.log(msg);
-    if (msg.message_type === sbs1.MessageType.TRANSMISSION && msg.transmission_type === sbs1.TransmissionType.ES_AIRBORNE_POS) {
-      let cot;
-      let callsign;
-      if (cotdb[msg.hex_ident]) {
-        cot = cotdb[msg.hex_ident][0]
+  function pullandfeed() {
+    fetch('https://api.adsb.one/v2/mil')
+  
+    .then((response) => response.json())
+    .then((data) => {
+      for (var no in data.ac) {
+        let item = data.ac[no];
+        aircraft = functions.adsb2cot(item);
+        if (aircraft != null) client.write(aircraft);
       }
-      else if (acdb[msg.hex_ident]) {
-        cot = "a-u-A-C-F"
-      }
-      else {
-        cot = "a-u-A"
-      }
-      if (msg.callsign != null) {
-        callsign = msg.callsign;
-        console.log(functions.adsb2cot(msg.hex_ident,cot,msg.lat,msg.lon,msg.altitude,msg.squawk,callsign));
-      } else console.log(msg);
-    }
-  });
-
+    });
+  
+    setTimeout(pullandfeed,interval);
+  };
 };
+
 
 if (url && sslCert && sslKey) {
   run();
