@@ -49,7 +49,7 @@ Here is an example for a docker-compose.yml file:
 version: '2.0'
 
 services:
-  gdacs:
+  adsbone:
     image: ghcr.io/sgofferj/tak-feeder-adsb-one:latest
     restart: always
     networks:
@@ -64,6 +64,6 @@ services:
       - LOGCOT=false
       - CALLSIGN=adsb.one
       - MYCOT=a-f-G-U
-      
+
 networks:
   default:
