@@ -73,7 +73,7 @@ const run = () => {
 
   function pullandfeed() {
     let url;
-    if (getMil == true) url = 'https://api.adsb.one/v2/mil';
+    if (getMil == 'true') url = 'https://api.adsb.one/v2/mil';
     else url = `https://api.adsb.one/v2/point/${LAT}/${LON}/${RANGE}`;
     fetch(url)
   
