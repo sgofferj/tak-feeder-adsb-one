@@ -1,4 +1,4 @@
-[![Build and publish the container image](https://github.com/sgofferj/tak-feeder-gdacs/actions/workflows/actions.yml/badge.svg)](https://github.com/sgofferj/tak-feeder-adsb-one/actions/workflows/actions.yml)
+[![Build and publish the container image](https://github.com/sgofferj/tak-feeder-adsb-one/actions/workflows/actions.yml/badge.svg)](https://github.com/sgofferj/tak-feeder-adsb-one/actions/workflows/actions.yml)
 
 # tak-feeder-adsb-one
 Feed ADSB data from adsb.one into your TAK server
