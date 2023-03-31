@@ -10,6 +10,7 @@
   "license": "GPL-3.0-or-later",
   "dependencies": {
     "@vidterra/tak.js": "^0.0.8",
+    "dotenv": "^16.0.3",
     "fs": "^0.0.1-security",
     "net": "^1.0.2",
     "objectcache": "^0.2.4",
