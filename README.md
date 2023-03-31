@@ -25,6 +25,8 @@ The following values are supported and can be provided either as environment var
 | LAT | 0 | (mandatory if not getting military only) Point latitude |
 | LON | 0 | (mandatory if not getting military only) Point longitude |
 | RANGE | 250 | (mandatory if not getting military only) Range in nm (max. 250) |
+| CALLSIGN | adsb.one | (optional) Callsign for heartbeat |
+| MYCOT | a-f-G-U | (optional) CoT type for heartbeat |
 
 Note: At the moment, only SSL TCP connections are supported.
 ## Certificates
@@ -60,6 +62,8 @@ services:
       - REMOTE_SSL_SERVER_KEY=/data/key.pem
       - UPDATE_INTERVAL=60
       - LOGCOT=false
-
+      - CALLSIGN=adsb.one
+      - MYCOT=a-f-G-U
+      
 networks:
   default:
