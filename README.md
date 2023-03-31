@@ -19,6 +19,8 @@ The following values are supported and can be provided either as environment var
 | REMOTE_SSL_SERVER_CERTIFICATE | empty | (mandatory for ssl) User certificate in PEM format |
 | REMOTE_SSL_SERVER_KEY | empty | (mandatory for ssl) User certificate key in PEM format |
 | UPDATE_INTERVAL | 2 | (optional) Update intervall in seconds (min. 2) |
+| COTDB | empty | (optional) Database of known aircraft COTs |
+| COUNTRIESDB | empty | (optional) Country classifications |
 | LOGCOT | false | (optional) Log created CoTs to the console |
 | UUID | empty | (optional) Set feeder UID - if not set, the feeder will create one |
 | GETMIL | false | (optional) Get all military aircraft |
@@ -40,7 +42,7 @@ The image is built for AMD64 and ARM64 and pushed to ghcr.io: *ghcr.io/sgofferj/
 First, rename .env.example to .env and edit according to your needs \
 Create and start the container:
 ```
-docker run -d --env-file .env -v <path-to-data-directory>:/data:ro --name tak-feeder-gdacs --restart always ghcr.io/sgofferj/tak-feeder-adsb-one:latest
+docker run -d --env-file .env -v <path-to-data-directory>:/data:ro --name tak-feeder-adsb-one --restart always ghcr.io/sgofferj/tak-feeder-adsb-one:latest
 ```
 
 ### Docker compose
@@ -60,8 +62,15 @@ services:
       - REMOTE_SERVER_URL=ssl://tak-server:8089
       - REMOTE_SSL_SERVER_CERTIFICATE=/data/cert.pem
       - REMOTE_SSL_SERVER_KEY=/data/key.pem
-      - UPDATE_INTERVAL=60
+      - COTDB=/data/cotdb_indexed.json
+      - COUNTRIESDB=/data/countries.json
+      - UPDATE_INTERVAL=2
       - LOGCOT=false
+      - CALLSIGN=adsb.one
+      - MYCOT=a-f-G-U
+      - GETMIL=false
+      - LAT=60.0
+      - LON=24.0
       - CALLSIGN=adsb.one
       - MYCOT=a-f-G-U
 
