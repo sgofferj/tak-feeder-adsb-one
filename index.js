@@ -19,7 +19,6 @@ const LAT = (typeof process.env.LAT !== 'undefined') ? process.env.LAT : 0;
 const LON = (typeof process.env.LON !== 'undefined') ? process.env.LON : 0;
 const RANGE = (typeof process.env.RANGE !== 'undefined') ? process.env.RANGE : 250;
 
-
 const heartbeatIntervall = 30 * 1000;
 var interval = intervalSecs * 1000;
 
