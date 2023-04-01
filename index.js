@@ -87,7 +87,6 @@ const run = () => {
   };
 };
 
-
 if (url && sslCert && sslKey) {
   run();
 }
