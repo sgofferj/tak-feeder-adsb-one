@@ -1,4 +1,5 @@
 *.pem
+aircrafts.json
 countries.json
 cotdb_indexed.json
 operators.json
