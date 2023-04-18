@@ -60,8 +60,8 @@ services:
       - <path to data-directory>:/data:ro
     environment:
       - REMOTE_SERVER_URL=ssl://tak-server:8089
-      - REMOTE_SSL_SERVER_CERTIFICATE=/data/cert.pem
-      - REMOTE_SSL_SERVER_KEY=/data/key.pem
+      - REMOTE_SSL_USER_CERTIFICATE=/data/cert.pem
+      - REMOTE_SSL_USER_KEY=/data/key.pem
       - COTDB=/data/cotdb_indexed.json
       - COUNTRIESDB=/data/countries.json
       - UPDATE_INTERVAL=2

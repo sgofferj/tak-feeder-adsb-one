@@ -23,6 +23,11 @@ const LAT = (typeof process.env.LAT !== 'undefined') ? process.env.LAT : 0;
 const LON = (typeof process.env.LON !== 'undefined') ? process.env.LON : 0;
 const RANGE = (typeof process.env.RANGE !== 'undefined') ? process.env.RANGE : 250;
 
+if (getMil === true)
+  console.log("GETMIL true");
+else
+  console.log(LAT,LON,RANGE);
+
 const heartbeatIntervall = 30 * 1000;
 var interval = intervalSecs * 1000;
 
@@ -79,7 +84,7 @@ const run = () => {
 
   function pullandfeed() {
     let url;
-    if (getMil  === true) url = 'https://api.adsb.one/v2/mil';
+    if (getMil === true) url = 'https://api.adsb.one/v2/mil';
     else url = `https://api.adsb.one/v2/point/${LAT}/${LON}/${RANGE}`;
     fetch(url)
   
