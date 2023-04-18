@@ -18,7 +18,7 @@ if (!functions.checkFile(sslKey)) process.exit();
 const intervalSecs = (typeof process.env.UPDATE_INTERVAL !== 'undefined') ? process.env.UPDATE_INTERVAL : 2;
 if (intervalSecs < 2) intervalSecs = 2;
 const logCot = (typeof process.env.LOGCOT !== 'undefined') ? (process.env.LOGCOT == "true") : false;
-const getMil = (typeof process.env.GETMIL !== 'undefined') ? (process.env.LOGCOT == "true") : false;
+const getMil = (typeof process.env.GETMIL !== 'undefined') ? (process.env.GETMIL == "true") : false;
 const LAT = (typeof process.env.LAT !== 'undefined') ? process.env.LAT : 0;
 const LON = (typeof process.env.LON !== 'undefined') ? process.env.LON : 0;
 const RANGE = (typeof process.env.RANGE !== 'undefined') ? process.env.RANGE : 250;
