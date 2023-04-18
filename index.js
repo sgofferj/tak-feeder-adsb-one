@@ -50,7 +50,7 @@ const run = () => {
     if (client.authorized) {
       console.log("Connection authorized by a Certificate Authority.")
     } else {
-      console.log("Connection not authorized: " + client.authorizationError)
+      console.log("Connection not authorized: " + client.authorizationError + " - ignoring")
     }
     heartbeat();
     pullandfeed();
