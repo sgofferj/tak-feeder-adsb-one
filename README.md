@@ -7,8 +7,6 @@ Feed ADSB data from adsb.one into your TAK server
 
 Licensed under the GNU General Public License V3 or later.
 
-<font color="red">**WIP - NOT READY FOR PRODUCTION**</font>
-
 ## Description
 ## Configuration
 The following values are supported and can be provided either as environment variables or through an .env-file.
