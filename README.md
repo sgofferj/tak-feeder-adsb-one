@@ -1,4 +1,8 @@
-[![Build and publish the container image](https://github.com/sgofferj/tak-feeder-adsb-one/actions/workflows/actions.yml/badge.svg)](https://github.com/sgofferj/tak-feeder-adsb-one/actions/workflows/actions.yml)
+> [!IMPORTANT]
+> adsb.one fusioned with airplanes.live. After that, the adsb.one API was shut down on 01 DEC 2025.
+> I have decided to retire this TAK feeder rather than maintaining it and use the time to start writing
+> a universal feeder which works with more ADSB data APIs, including paid ones. The new feeder is being
+> developed as a plugin for [Trakbridge](https://github.com/emfoursolutions/trakbridge).
 
 # tak-feeder-adsb-one
 Feed ADSB data from adsb.one into your TAK server
